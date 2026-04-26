@@ -52,15 +52,28 @@ export const navPanels = {
       ctaHref: '#sectores',
       ctaLabel: 'Sectores',
     },
+    // Six sectors split into three themed pairs so the panel fills its 3-column grid.
     columns: [
       {
-        heading: 'Sectores',
-        items: sectors.map((s) => ({
-          label: s.label,
-          href: '#sectores',
-          detail: s.detail,
-          icon: s.id,
-        })),
+        heading: 'Industria & oficinas',
+        items: ['corporativo', 'industria'].map((id) => {
+          const s = sectors.find((x) => x.id === id)
+          return { label: s.label, href: '#sectores', detail: s.detail, icon: s.id }
+        }),
+      },
+      {
+        heading: 'Salud & educación',
+        items: ['salud', 'educacion'].map((id) => {
+          const s = sectors.find((x) => x.id === id)
+          return { label: s.label, href: '#sectores', detail: s.detail, icon: s.id }
+        }),
+      },
+      {
+        heading: 'Retail & logística',
+        items: ['retail', 'logistica'].map((id) => {
+          const s = sectors.find((x) => x.id === id)
+          return { label: s.label, href: '#sectores', detail: s.detail, icon: s.id }
+        }),
       },
     ],
   },
