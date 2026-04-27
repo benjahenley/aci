@@ -1,4 +1,4 @@
-import logo2 from "/worded-logo.png";
+import logo2 from "/logo.png";
 export default function Logo() {
   return (
     <a

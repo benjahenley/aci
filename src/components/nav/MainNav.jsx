@@ -7,7 +7,7 @@ import { navPanels } from "../../data/navPanels.js";
 const ITEMS = [
   { label: "Servicios", href: "#servicios", dropdown: true },
   { label: "Sectores", href: "#sectores", dropdown: true },
-  { label: "Nosotros", href: "#nosotros", dropdown: true },
+  { label: "Nosotros", href: "#nosotros" },
   { label: "Sostenibilidad", href: "#sostenibilidad" },
   { label: "Novedades", href: "#novedades" },
 ];
@@ -46,9 +46,12 @@ export default function MainNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }, []);
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    },
+    [],
+  );
 
   // Intent-aware open/close: cursor can travel from the nav item to the panel
   // without the panel snapping shut.
@@ -88,7 +91,9 @@ export default function MainNav() {
               return (
                 <li
                   key={item.label}
-                  onPointerEnter={() => (hasPanel ? open(item.label) : scheduleClose())}>
+                  onPointerEnter={() =>
+                    hasPanel ? open(item.label) : scheduleClose()
+                  }>
                   <a
                     href={item.href}
                     className={[
@@ -100,7 +105,9 @@ export default function MainNav() {
                       <span
                         className={[
                           "transition-colors",
-                          isOpen ? "text-red" : "text-charcoal/40 group-hover:text-red",
+                          isOpen
+                            ? "text-red"
+                            : "text-charcoal/40 group-hover:text-red",
                         ].join(" ")}>
                         <ChevronDown open={isOpen} />
                       </span>

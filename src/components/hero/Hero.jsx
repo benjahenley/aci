@@ -63,7 +63,7 @@ export default function Hero() {
           <div
             data-rise
             style={{ "--delay": "120ms" }}
-            className="mb-10 flex flex-wrap items-center gap-x-8 gap-y-3">
+            className="mb-10 hidden md:flex flex-wrap items-center gap-x-8 gap-y-3 ">
             <HeroClock />
             <span className="hidden h-3 w-px bg-charcoal/20 sm:inline-block" />
             <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-charcoal/55">
@@ -71,25 +71,14 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Massive headline — Bricolage Grotesque. Weight contrast carries
-              the emphasis (no italic axis in Bricolage). Red period = lone accent. */}
-          <h1 className="font-display text-charcoal">
-            <span
+          <h1 className="font-display text-charcoal pt-10 md:pt-0">
+            <img
               data-rise
-              style={{
-                "--delay": "260ms",
-                fontVariationSettings: '"opsz" 96, "wght" 420',
-                letterSpacing: "-0.028em",
-                lineHeight: 1.0,
-              }}
-              className="block text-[54px] sm:text-[64px] md:text-[80px] xl:text-[100px]">
-              Un solo
-              <br />
-              <span style={{ fontVariationSettings: '"opsz" 96, "wght" 620' }}>
-                proveedor
-              </span>
-              <span className="text-red">.</span>
-            </span>
+              style={{ "--delay": "260ms" }}
+              src="/worded-logo.png"
+              alt="ACI Facility Management"
+              className="block w-full max-w-[560px] xl:max-w-[680px]"
+            />
             <span
               data-rise
               style={{
@@ -140,17 +129,6 @@ export default function Hero() {
               </svg>
             </a>
           </div>
-
-          {/* Footnote / hairline */}
-          <div
-            data-fade
-            style={{ "--delay": "1100ms" }}
-            className="mt-16 flex max-w-md items-center gap-4">
-            <div className="aci-rule flex-1" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-              Personal propio · 24/7
-            </span>
-          </div>
         </div>
 
         {/* RIGHT: diagram + tag card */}
@@ -166,71 +144,6 @@ export default function Hero() {
             <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute"></div>
 
             <BuildingDiagram className="aspect-square w-full" />
-
-            {/* Bottom meta */}
-            <div className="mt-4 grid grid-cols-3 gap-3 border-t border-hairline pt-4 text-[11px] tracking-[0.04em] text-ink-mute">
-              <div>
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-ink-mute/70">
-                  Servicios
-                </div>
-                <div className="mt-0.5 font-medium text-charcoal">
-                  8 especialidades
-                </div>
-              </div>
-              <div>
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-ink-mute/70">
-                  Cobertura
-                </div>
-                <div className="mt-0.5 font-medium text-charcoal">
-                  CABA · AMBA
-                </div>
-              </div>
-              <div>
-                <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-ink-mute/70">
-                  SLA
-                </div>
-                <div className="mt-0.5 font-medium text-charcoal">≤ 12 min</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Carousel-style arrow pair (decorative for v1) */}
-          <div
-            data-fade
-            style={{ "--delay": "1100ms" }}
-            className="mt-6 flex items-center justify-end gap-2">
-            <span className="mr-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-              01 / 03
-            </span>
-            <button
-              type="button"
-              aria-label="Anterior"
-              className="grid size-11 place-items-center rounded-full border border-charcoal/20 text-charcoal transition-colors hover:border-red hover:text-red">
-              <svg
-                viewBox="0 0 16 16"
-                className="size-3.5 rotate-180"
-                fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </button>
-            <button
-              type="button"
-              aria-label="Siguiente"
-              className="grid size-11 place-items-center rounded-full bg-red text-paper transition-colors hover:bg-red-hover">
-              <svg viewBox="0 0 16 16" className="size-3.5" fill="none">
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

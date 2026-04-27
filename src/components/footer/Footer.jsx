@@ -1,19 +1,31 @@
-import Logo from '../nav/Logo.jsx'
+import Logo from "../nav/Logo.jsx";
 
 const COLUMNS = [
   {
-    title: 'Servicios',
-    links: ['Servicios técnicos', 'Servicios operativos', 'Gestión y logística', 'Propuesta integral'],
+    title: "Servicios",
+    links: [
+      "Servicios técnicos",
+      "Servicios operativos",
+      "Gestión y logística",
+      "Propuesta integral",
+    ],
   },
   {
-    title: 'Sectores',
-    links: ['Corporativo', 'Industria', 'Salud', 'Educación', 'Retail', 'Logística'],
+    title: "Sectores",
+    links: [
+      "Corporativo",
+      "Industria",
+      "Salud",
+      "Educación",
+      "Retail",
+      "Logística",
+    ],
   },
   {
-    title: 'Empresa',
-    links: ['Nosotros', 'Sostenibilidad', 'Novedades', 'Trabaja con ACI'],
+    title: "Empresa",
+    links: ["Nosotros", "Sostenibilidad", "Novedades", "Trabaja con ACI"],
   },
-]
+];
 
 export default function Footer() {
   return (
@@ -39,7 +51,9 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {column.links.map((link) => (
                   <li key={link}>
-                    <a href="#top" className="text-[14px] text-ink-mute transition-colors hover:text-red">
+                    <a
+                      href="#top"
+                      className="text-[14px] text-ink-mute transition-colors hover:text-red">
                       {link}
                     </a>
                   </li>
@@ -60,7 +74,9 @@ export default function Footer() {
             <br />
             Argentina
           </address>
-          <a className="mt-5 inline-flex text-[14px] font-medium text-red underline underline-offset-4" href="mailto:contacto@acifm.com.ar">
+          <a
+            className="mt-5 inline-flex text-[14px] font-medium text-red underline underline-offset-4"
+            href="mailto:contacto@acifm.com.ar">
             contacto@acifm.com.ar
           </a>
         </div>
@@ -73,5 +89,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
