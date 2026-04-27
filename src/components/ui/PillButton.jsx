@@ -29,10 +29,10 @@ export default function PillButton({
       ].join(' ')}
       {...rest}
     >
-      <span>{children}</span>
+      <span className="whitespace-nowrap">{children}</span>
       <span
         aria-hidden
-        className="grid size-5 place-items-center transition-transform duration-300 group-hover:translate-x-0.5"
+        className="grid size-5 shrink-0 place-items-center transition-transform duration-300 group-hover:translate-x-0.5"
       >
         <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
           <path

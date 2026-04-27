@@ -204,6 +204,14 @@ body {
   border-radius: 2px;
 }
 
+/* Form fields use their own focus treatment (animated underline / border tint) */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-radius: 0;
+}
+
 /* Reduced motion — respect it */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

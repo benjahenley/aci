@@ -29,7 +29,7 @@ const ARTWORK = {
   },
 }
 
-export default function ServiceArtwork({ serviceId }) {
+export default function ServiceArtwork({ serviceId, showLabel = true }) {
   const artwork = ARTWORK[serviceId] || ARTWORK.tecnicos
 
   return (
@@ -60,9 +60,11 @@ export default function ServiceArtwork({ serviceId }) {
           ))}
         </g>
       </svg>
-      <span className="absolute left-5 top-5 z-20 rounded-full border border-paper/20 bg-paper/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-paper">
-        {artwork.label}
-      </span>
+      {showLabel && (
+        <span className="absolute left-5 top-5 z-20 rounded-full border border-paper/20 bg-paper/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-paper">
+          {artwork.label}
+        </span>
+      )}
     </div>
   )
 }

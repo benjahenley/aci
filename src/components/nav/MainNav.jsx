@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo.jsx";
 import MegaPanel from "./MegaPanel.jsx";
 import PillButton from "../ui/PillButton.jsx";
 import { navPanels } from "../../data/navPanels.js";
 
 const ITEMS = [
-  { label: "Servicios", href: "#servicios", dropdown: true },
+  { label: "Servicios", href: "/servicios", dropdown: true },
   { label: "Sectores", href: "#sectores", dropdown: true },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Sostenibilidad", href: "#sostenibilidad" },
@@ -88,31 +89,42 @@ export default function MainNav() {
             {ITEMS.map((item) => {
               const hasPanel = item.dropdown && navPanels[item.label];
               const isOpen = openItem === item.label;
+              const isRoute = item.href.startsWith("/");
+              const linkClass = [
+                "group inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[14px] font-medium transition-colors",
+                isOpen ? "text-red" : "text-charcoal/85 hover:text-red",
+              ].join(" ");
+              const inner = (
+                <>
+                  {item.label}
+                  {item.dropdown && (
+                    <span
+                      className={[
+                        "transition-colors",
+                        isOpen
+                          ? "text-red"
+                          : "text-charcoal/40 group-hover:text-red",
+                      ].join(" ")}>
+                      <ChevronDown open={isOpen} />
+                    </span>
+                  )}
+                </>
+              );
               return (
                 <li
                   key={item.label}
                   onPointerEnter={() =>
                     hasPanel ? open(item.label) : scheduleClose()
                   }>
-                  <a
-                    href={item.href}
-                    className={[
-                      "group inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[14px] font-medium transition-colors",
-                      isOpen ? "text-red" : "text-charcoal/85 hover:text-red",
-                    ].join(" ")}>
-                    {item.label}
-                    {item.dropdown && (
-                      <span
-                        className={[
-                          "transition-colors",
-                          isOpen
-                            ? "text-red"
-                            : "text-charcoal/40 group-hover:text-red",
-                        ].join(" ")}>
-                        <ChevronDown open={isOpen} />
-                      </span>
-                    )}
-                  </a>
+                  {isRoute ? (
+                    <Link to={item.href} className={linkClass}>
+                      {inner}
+                    </Link>
+                  ) : (
+                    <a href={item.href} className={linkClass}>
+                      {inner}
+                    </a>
+                  )}
                 </li>
               );
             })}

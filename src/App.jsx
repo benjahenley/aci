@@ -1,13 +1,8 @@
-import CtaBand from './components/cta/CtaBand.jsx'
-import Footer from './components/footer/Footer.jsx'
-import Hero from './components/hero/Hero.jsx'
+import { Route, Routes } from 'react-router-dom'
 import MainNav from './components/nav/MainNav.jsx'
 import TopBar from './components/nav/TopBar.jsx'
-import NewsSection from './components/news/NewsSection.jsx'
-import NumbersBand from './components/numbers/NumbersBand.jsx'
-import SectorsStrip from './components/sectors/SectorsStrip.jsx'
-import ServicesSection from './components/services/ServicesSection.jsx'
-import ValuesSection from './components/values/ValuesSection.jsx'
+import Home from './pages/Home.jsx'
+import Servicios from './pages/Servicios.jsx'
 
 function App() {
   return (
@@ -15,15 +10,11 @@ function App() {
       <TopBar />
       <MainNav />
       <main>
-        <Hero />
-        <ServicesSection />
-        <SectorsStrip />
-        <ValuesSection />
-        <NumbersBand />
-        <NewsSection />
-        <CtaBand />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/servicios" element={<Servicios />} />
+        </Routes>
       </main>
-      <Footer />
     </div>
   )
 }

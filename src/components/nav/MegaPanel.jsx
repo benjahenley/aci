@@ -1,5 +1,13 @@
 // OCS-style mega dropdown — feature card on the left, arrow-link columns on the right.
 // Pure CSS hover/transition, no GSAP needed.
+import { Link } from "react-router-dom";
+
+function SmartLink({ href, ...props }) {
+  if (href && href.startsWith("/")) {
+    return <Link to={href} {...props} />;
+  }
+  return <a href={href} {...props} />;
+}
 
 function ArrowGlyph({ className = "" }) {
   return (
@@ -21,7 +29,7 @@ function ArrowGlyph({ className = "" }) {
 
 function ArrowLink({ href, label, detail, icon }) {
   return (
-    <a
+    <SmartLink
       href={href}
       className="group/link flex items-start gap-3 rounded-md py-2 pr-3 transition-colors"
     >
@@ -55,7 +63,7 @@ function ArrowLink({ href, label, detail, icon }) {
           </span>
         )}
       </span>
-    </a>
+    </SmartLink>
   );
 }
 
@@ -144,7 +152,7 @@ function FeatureArt({ id }) {
 
 function FeatureCard({ feature }) {
   return (
-    <a
+    <SmartLink
       href={feature.ctaHref}
       className="group/feature relative flex h-full flex-col overflow-hidden rounded-[16px] bg-paper ring-1 ring-hairline/70"
     >
@@ -179,7 +187,7 @@ function FeatureCard({ feature }) {
           {feature.body}
         </p>
       </div>
-    </a>
+    </SmartLink>
   );
 }
 

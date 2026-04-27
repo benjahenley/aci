@@ -1,11 +1,11 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "../../data/services.js";
 import ArrowButton from "../ui/ArrowButton.jsx";
 import Eyebrow from "../ui/Eyebrow.jsx";
 import PillButton from "../ui/PillButton.jsx";
-import ProgressBar from "../ui/ProgressBar.jsx";
 import ServiceArtwork from "./ServiceArtwork.jsx";
 
 // GSAP-style "expo.out" easing reproduced in pure CSS
@@ -26,14 +26,17 @@ function ServiceCard({ service, isActive }) {
       style={{
         transition: `opacity ${DURATION}ms ${EASE}`,
       }}>
-      <div className="relative aspect-4/3 shrink-0">
+      <Link
+        to={`/servicios#${service.id}`}
+        aria-label={`Ver detalle de ${service.title}`}
+        className="relative aspect-4/3 block shrink-0"
+      >
         <ServiceArtwork serviceId={service.id} />
-        <a
-          href="#contacto"
-          aria-label={`Consultar por ${service.title}`}
+        <span
+          aria-hidden
           className="absolute -bottom-5 right-6 z-20 grid size-11 place-items-center rounded-full bg-red text-paper shadow-[0_18px_36px_-14px_rgba(232,38,42,0.7)] transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-18"
           style={{ transitionTimingFunction: EASE }}>
-          <svg viewBox="0 0 16 16" className="size-3.5" fill="none" aria-hidden>
+          <svg viewBox="0 0 16 16" className="size-3.5" fill="none">
             <path
               d="M4 12 12 4M6 4h6v6"
               stroke="currentColor"
@@ -41,8 +44,8 @@ function ServiceCard({ service, isActive }) {
               strokeLinecap="square"
             />
           </svg>
-        </a>
-      </div>
+        </span>
+      </Link>
 
       <div className="flex flex-1 flex-col px-7 pb-8 pt-10">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-red">
@@ -226,9 +229,6 @@ export default function ServicesSection() {
 
     setActive((c) => Math.max(0, Math.min(maxActive, c + step)));
   };
-
-  const progress = maxActive === 0 ? 1 : (clampedActive + 1) / (maxActive + 1);
-  const counter = `${String(clampedActive + 1).padStart(2, "0")} / ${String(services.length).padStart(2, "0")}`;
 
   return (
     <section

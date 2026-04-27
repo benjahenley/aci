@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import logo2 from "/logo.png";
 export default function Logo() {
   return (
-    <a
-      href="#top"
+    <Link
+      to="/"
       aria-label="ACI Facility Management — inicio"
       className="group flex items-center gap-3">
       {/* <img src={logo} className="max-w-20"></img> */}
@@ -19,6 +20,6 @@ export default function Logo() {
           Facility Management
         </span>
       </span> */}
-    </a>
+    </Link>
   );
 }
