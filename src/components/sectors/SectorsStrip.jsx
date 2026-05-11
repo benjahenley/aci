@@ -47,7 +47,8 @@ function SectorCard({ sector, index, total, setCardRef }) {
           <SectorIcon id={sector.id} />
         </div>
         <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute transition-colors duration-300 group-hover:text-red">
-          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+          {String(index + 1).padStart(2, "0")} /{" "}
+          {String(total).padStart(2, "0")}
         </span>
       </div>
 
@@ -59,7 +60,7 @@ function SectorCard({ sector, index, total, setCardRef }) {
           {sector.detail}
         </p>
 
-        <div className="mt-5 flex items-center justify-between border-t border-hairline pt-4 transition-colors duration-300 group-hover:border-red/30">
+        {/* <div className="mt-5 flex items-center justify-between border-t border-hairline pt-4 transition-colors duration-300 group-hover:border-red/30">
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute transition-colors duration-300 group-hover:text-red">
             Ver sector
           </span>
@@ -75,7 +76,7 @@ function SectorCard({ sector, index, total, setCardRef }) {
               />
             </svg>
           </span>
-        </div>
+        </div> */}
       </div>
     </article>
   );
